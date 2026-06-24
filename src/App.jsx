@@ -11,7 +11,7 @@ function currentPath() {
 function Logo() {
   return (
     <a className="logo" href="/" aria-label="artYSion home">
-      <span>art</span><strong>YS</strong><span>ion</span>
+      <img src="/images/brand/artysion-logo-transparent.png" alt="artYSion" />
     </a>
   );
 }
@@ -150,7 +150,7 @@ function FeaturedArtworks() {
       if (width >= 1700) setVisibleCount(5);
       else if (width >= 1350) setVisibleCount(4);
       else if (width >= 760) setVisibleCount(3);
-      else if (width >= 520) setVisibleCount(2);
+      else if (width >= 360) setVisibleCount(2);
       else setVisibleCount(1);
     };
 
@@ -342,7 +342,7 @@ function ArtworkPage({ id }) {
   return (
     <PageShell active="gallery">
       <section className="artwork-detail">
-        <div className="artwork-viewer protected-viewer"><div className="artwork-image-stage"><img src={artwork.images[index]} alt={artwork.title} draggable="false" /><span className="artysion-watermark">artYSion</span></div>{artwork.images.length > 1 && <><button className="viewer-arrow left" onClick={prev}>‹</button><button className="viewer-arrow right" onClick={next}>›</button><p>{index + 1} / {artwork.images.length}</p></>}</div>
+        <div className="artwork-viewer protected-viewer"><div className="artwork-image-stage"><img src={artwork.images[index]} alt={artwork.title} draggable="false" /><span className="artysion-watermark"><img src="/images/brand/artysion-logo-transparent.png" alt="" aria-hidden="true" /></span></div>{artwork.images.length > 1 && <><button className="viewer-arrow left" onClick={prev}>‹</button><button className="viewer-arrow right" onClick={next}>›</button><p>{index + 1} / {artwork.images.length}</p></>}</div>
         <aside className="artwork-info">
           <Badges artwork={artwork} />
           <h1>{artwork.title}</h1>
@@ -354,7 +354,6 @@ function ArtworkPage({ id }) {
             <h2>Premium Giclée Canvas Prints Available</h2>
             <ul>{siteConfig.printOptions.map((option) => <li key={option.size}>{option.size} — {formatPrintPrice(option.price)}</li>)}</ul>
           </div>
-          <PolicyNotes />
           <h2>Story</h2><p>{artwork.story}</p>
           <div className="artwork-action-row">
             <a className="primary-button" href={`/contact?artwork=${artwork.id}`}>Inquire About This Artwork <span>→</span></a>
@@ -363,6 +362,7 @@ function ArtworkPage({ id }) {
             <a className="outline-button" href={`/payment?artwork=${artwork.id}&type=print`}>Purchase Print <span>→</span></a>
           </div>
           {artwork.status === "sold" && artwork.exclusive && <p className="purchase-note"><strong>Collector Piece:</strong> Reproduction is not available. Prints remain available unless otherwise noted.</p>}
+          <PolicyNotes />
         </aside>
       </section>
     </PageShell>
@@ -396,7 +396,7 @@ function ProgressionPage({ id }) {
   const currentIndex = progressions.findIndex((p) => p.id === id);
   const prevProgression = progressions[(currentIndex - 1 + progressions.length) % progressions.length];
   const nextProgression = progressions[(currentIndex + 1) % progressions.length];
-  return <PageShell active="canvas"><section className="progression-detail"><h1>{progression.title}</h1><div className="stage-viewer protected-viewer"><div className="stage-image-stage"><img src={current.image} alt={current.label} draggable="false" /><span className="artysion-watermark">artYSion</span></div><div className="stage-meta"><p>Stage {stage + 1} of 5</p><h2>{current.label}</h2><div className="stage-actions"><button onClick={() => setStage(Math.max(0, stage - 1))} disabled={stage === 0}>← Previous Stage</button><button onClick={() => setStage(Math.min(progression.stages.length - 1, stage + 1))} disabled={stage === progression.stages.length - 1}>Next Stage →</button></div></div></div><div className="book-prompt">Grab a copy of <a href={siteConfig.amazonLinks.landscapeMadeEasy} target="_blank" rel="noreferrer">Landscape Made Easy</a> for more guidance.</div><div className="progression-nav"><a href={`/canvas-to-creation/${prevProgression.id}`}>← Previous Progression</a><a href="/canvas-to-creation">All Progressions</a><a href={`/canvas-to-creation/${nextProgression.id}`}>Next Progression →</a></div></section></PageShell>;
+  return <PageShell active="canvas"><section className="progression-detail"><h1>{progression.title}</h1><div className="stage-viewer protected-viewer"><div className="stage-image-stage"><img src={current.image} alt={current.label} draggable="false" /><span className="artysion-watermark"><img src="/images/brand/artysion-logo-transparent.png" alt="" aria-hidden="true" /></span></div><div className="stage-meta"><p>Stage {stage + 1} of 5</p><h2>{current.label}</h2><div className="stage-actions"><button onClick={() => setStage(Math.max(0, stage - 1))} disabled={stage === 0}>← Previous Stage</button><button onClick={() => setStage(Math.min(progression.stages.length - 1, stage + 1))} disabled={stage === progression.stages.length - 1}>Next Stage →</button></div></div></div><div className="book-prompt">Grab a copy of <a href={siteConfig.amazonLinks.landscapeMadeEasy} target="_blank" rel="noreferrer">Landscape Made Easy</a> for more guidance.</div><div className="progression-nav"><a href={`/canvas-to-creation/${prevProgression.id}`}>← Previous Progression</a><a href="/canvas-to-creation">All Progressions</a><a href={`/canvas-to-creation/${nextProgression.id}`}>Next Progression →</a></div></section></PageShell>;
 }
 
 function ArtSessionsPage() {

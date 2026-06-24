@@ -1863,3 +1863,486 @@ img {
   .featured-panel .carousel-control.left { left: -6px !important; }
   .featured-panel .carousel-control.right { right: -6px !important; }
 }
+
+/* ===== artYSion v1.1 launch corrections: brand assets, mobile layout, GA ID fix support ===== */
+.logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: clamp(168px, 17vw, 264px) !important;
+  height: auto !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+}
+.logo img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+.footer-brand .logo { width: 210px !important; max-width: 100% !important; }
+
+.site-header {
+  background: rgba(5,5,5,.94) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.artysion-watermark {
+  display: block !important;
+  width: clamp(72px, 8vw, 126px) !important;
+  height: auto !important;
+  opacity: .16 !important;
+  top: 14px !important;
+  right: 16px !important;
+  bottom: auto !important;
+  color: transparent !important;
+  text-shadow: none !important;
+  line-height: 0 !important;
+}
+.artysion-watermark img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  filter: grayscale(1) brightness(1.8) contrast(.9) !important;
+  mix-blend-mode: screen;
+}
+
+.artwork-detail {
+  align-items: start !important;
+}
+.artwork-viewer {
+  align-items: stretch !important;
+  justify-content: flex-start !important;
+  background: var(--cream-2) !important;
+}
+.artwork-image-stage,
+.stage-image-stage {
+  align-items: flex-start !important;
+  justify-content: center !important;
+  width: 100% !important;
+}
+.artwork-info {
+  align-self: start !important;
+}
+
+@media (max-width: 760px) {
+  .site-header {
+    height: 76px !important;
+    padding: 0 24px !important;
+    background: rgba(5,5,5,.94) !important;
+  }
+  .mobile-nav { top: 76px !important; background: rgba(5,5,5,.98) !important; }
+  .logo { width: 205px !important; }
+  .footer-brand .logo { width: 220px !important; }
+
+  .hero {
+    min-height: 420px !important;
+    padding-top: 76px !important;
+    background-image:
+      linear-gradient(90deg, rgba(0,0,0,0.74) 0%, rgba(0,0,0,0.42) 42%, rgba(0,0,0,0.50) 100%),
+      url("/images/artworks/the-fence/The Fence - Main.jpg") !important;
+    background-size: 100% 100% !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+  .hero-content {
+    margin-left: 18px !important;
+    padding-top: 54px !important;
+    width: min(330px, calc(100% - 36px)) !important;
+  }
+  .hero h1 { font-size: clamp(34px, 9.8vw, 42px) !important; line-height: .98 !important; }
+  .hero p { font-size: 15px !important; line-height: 1.25 !important; white-space: nowrap; }
+  .hero p span { margin: 0 5px !important; }
+  .ornament { width: 82% !important; margin: 18px 0 15px !important; }
+  .hero .primary-button { min-height: 46px !important; padding: 0 18px !important; font-size: 13px !important; }
+
+  .gallery-preview .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+    padding: 0 !important;
+  }
+  .gallery-preview .gallery-tile {
+    aspect-ratio: 1 / 1 !important;
+  }
+
+  .featured-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 16px !important;
+  }
+  .art-card img { aspect-ratio: 1.12 / 1 !important; }
+  .art-card h3 { font-size: 14px !important; line-height: 1.1 !important; margin-top: 10px !important; }
+  .art-card p { font-size: 13px !important; }
+  .art-card strong { font-size: 14px !important; }
+  .featured-panel .carousel-control.left { left: -14px !important; }
+  .featured-panel .carousel-control.right { right: -14px !important; }
+
+  .artwork-detail {
+    align-items: start !important;
+    padding-top: 28px !important;
+  }
+  .artwork-viewer { justify-content: flex-start !important; }
+  .artwork-image-stage { align-items: flex-start !important; }
+  .artwork-viewer img { max-height: 56vh !important; }
+  .artysion-watermark { width: 74px !important; top: 10px !important; right: 10px !important; opacity: .18 !important; }
+}
+
+@media (max-width: 430px) {
+  .gallery-preview .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .featured-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .logo { width: 198px !important; }
+  .hero { min-height: 405px !important; background-size: 100% 100% !important; }
+  .hero-content { padding-top: 48px !important; }
+  .hero h1 { font-size: 36px !important; }
+  .hero p { font-size: 14px !important; }
+}
+
+/* ===== Desktop 100% zoom compact refinement =====
+   Goal: make the desktop composition feel like the approved 80% browser-zoom view,
+   without scaling the whole site or affecting mobile/tablet behavior. */
+@media (min-width: 1051px) {
+  .site-header {
+    height: 70px !important;
+    padding: 0 clamp(30px, 4.2vw, 64px) !important;
+  }
+
+  .page-main {
+    padding-top: 70px !important;
+  }
+
+  .logo {
+    width: clamp(145px, 12.2vw, 210px) !important;
+    overflow: hidden !important;
+  }
+  .logo img {
+    display: block !important;
+    border: 0 !important;
+  }
+
+  .desktop-nav {
+    gap: clamp(16px, 1.55vw, 30px) !important;
+    font-size: 12.5px !important;
+    letter-spacing: 0.035em !important;
+    line-height: 1.1 !important;
+  }
+  .desktop-nav a {
+    padding: 7px 0 !important;
+    white-space: nowrap !important;
+  }
+  .desktop-nav a.active::after {
+    width: 38px !important;
+    bottom: -7px !important;
+  }
+
+  .hero {
+    min-height: 575px !important;
+    padding-top: 70px !important;
+  }
+  .hero-content {
+    width: min(455px, calc(100% - 48px)) !important;
+    margin-left: clamp(42px, 5.2vw, 76px) !important;
+    padding-top: clamp(66px, 9vh, 82px) !important;
+  }
+  .hero h1 {
+    font-size: clamp(44px, 4.8vw, 64px) !important;
+    line-height: .96 !important;
+  }
+  .hero p {
+    font-size: clamp(18px, 1.65vw, 22px) !important;
+    margin-bottom: 24px !important;
+  }
+  .ornament {
+    width: min(390px, 82%) !important;
+    margin: 28px 0 20px !important;
+  }
+  .primary-button,
+  .outline-button,
+  .amazon-button {
+    min-height: 46px !important;
+    padding: 0 24px !important;
+    font-size: 13px !important;
+  }
+
+  .gallery-preview {
+    padding: 30px clamp(30px, 4.4vw, 68px) 38px !important;
+  }
+  .section-title h2,
+  .featured-panel h2,
+  .session-panel h2,
+  .process-section h2,
+  .book-commission h2 {
+    font-size: clamp(26px, 2.35vw, 34px) !important;
+  }
+  .gallery-grid {
+    max-width: 1220px !important;
+    gap: clamp(16px, 1.6vw, 24px) !important;
+    margin-top: 18px !important;
+    margin-bottom: 24px !important;
+  }
+  .text-link {
+    font-size: 16px !important;
+  }
+
+  .split-section {
+    padding: 40px clamp(30px, 4.4vw, 68px) 48px !important;
+    gap: clamp(28px, 4.2vw, 60px) !important;
+  }
+  .featured-grid {
+    gap: clamp(18px, 1.9vw, 30px) !important;
+  }
+  .art-card h3 { font-size: 15px !important; }
+  .art-card p { font-size: 14px !important; }
+  .art-card strong { font-size: 16px !important; }
+  .session-panel p {
+    font-size: 19px !important;
+    line-height: 1.4 !important;
+  }
+
+  .process-section {
+    padding: 38px clamp(30px, 4.4vw, 68px) 24px !important;
+  }
+  .process-top {
+    grid-template-columns: 260px minmax(0, 1fr) !important;
+    gap: clamp(28px, 3.6vw, 56px) !important;
+  }
+  .process-card {
+    width: 118px !important;
+  }
+  .process-card span { font-size: 15px !important; }
+  .process-card p { font-size: 12px !important; }
+  .step-arrow { font-size: 25px !important; }
+  .process-copy {
+    margin-top: 32px !important;
+    padding-top: 38px !important;
+  }
+  .process-copy p {
+    font-size: clamp(16px, 1.45vw, 20px) !important;
+  }
+  .process-copy p:nth-child(3) {
+    font-size: clamp(20px, 1.75vw, 26px) !important;
+    margin-top: 22px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .book-panel,
+  .commission-panel {
+    min-height: 190px !important;
+    padding: 24px clamp(28px, 3.4vw, 58px) !important;
+  }
+  .book-panel p,
+  .commission-panel p {
+    font-size: 17px !important;
+  }
+  .site-footer {
+    padding: 30px clamp(30px, 4.4vw, 68px) 20px !important;
+    gap: 30px !important;
+  }
+  .footer-brand .logo {
+    width: 175px !important;
+  }
+  .site-footer h3 { font-size: 14px !important; }
+  .site-footer p,
+  .site-footer a,
+  .site-footer small { font-size: 13px !important; }
+
+  .page-hero {
+    padding: 62px clamp(30px, 5vw, 78px) !important;
+  }
+  .page-hero.small {
+    padding-top: 78px !important;
+    padding-bottom: 58px !important;
+  }
+  .page-hero h1 {
+    font-size: clamp(38px, 4.1vw, 58px) !important;
+  }
+  .page-hero p { font-size: 12px !important; }
+
+  .gallery-page-section {
+    padding: 38px clamp(30px, 4.4vw, 68px) 62px !important;
+  }
+  .legend-cards {
+    max-width: 1020px !important;
+    gap: 18px !important;
+  }
+  .legend-cards article { padding: 20px !important; }
+  .legend-cards h3 { font-size: 21px !important; }
+  .legend-cards p { font-size: 15px !important; }
+  .artwork-grid-page { gap: 28px !important; }
+  .gallery-card h3 { font-size: 16px !important; }
+  .gallery-card p { font-size: 14px !important; }
+  .gallery-card strong { font-size: 16px !important; }
+
+  .artwork-detail {
+    padding: 58px clamp(30px, 4.6vw, 68px) !important;
+    gap: 38px !important;
+  }
+  .artwork-info h1 {
+    font-size: clamp(36px, 3.4vw, 54px) !important;
+  }
+  .artwork-info p { font-size: 18px !important; }
+  .artwork-info > strong { font-size: 24px !important; }
+  .artwork-info h2 { font-size: 24px !important; }
+}
+
+/* Prevent any accidental image artifact from appearing as a rule above the logo. */
+.site-header .logo,
+.site-footer .logo {
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+.site-header .logo::before,
+.site-header .logo::after,
+.site-footer .logo::before,
+.site-footer .logo::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* ===== artYSion v1.3 final desktop scale + stronger header logo =====
+   Desktop-only proportional refinement. Keeps mobile/tablet behavior intact. */
+@media (min-width: 1051px) {
+  .site-header {
+    height: 68px !important;
+    padding: 0 clamp(28px, 3.8vw, 58px) !important;
+  }
+  .page-main { padding-top: 68px !important; }
+
+  /* Larger brand mark inside the same compact header */
+  .site-header .logo {
+    width: clamp(172px, 14.3vw, 244px) !important;
+    max-height: 62px !important;
+    overflow: hidden !important;
+  }
+  .site-header .logo img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 62px !important;
+    object-fit: contain !important;
+  }
+
+  .desktop-nav {
+    gap: clamp(13px, 1.25vw, 24px) !important;
+    font-size: 11.3px !important;
+    letter-spacing: 0.03em !important;
+  }
+  .desktop-nav a { padding: 6px 0 !important; }
+  .desktop-nav a.active::after { width: 34px !important; bottom: -6px !important; }
+
+  .hero {
+    min-height: 518px !important;
+    padding-top: 68px !important;
+  }
+  .hero-content {
+    width: min(410px, calc(100% - 48px)) !important;
+    margin-left: clamp(38px, 4.6vw, 68px) !important;
+    padding-top: clamp(54px, 7.7vh, 70px) !important;
+  }
+  .hero h1 { font-size: clamp(38px, 4.1vw, 57px) !important; }
+  .hero p { font-size: clamp(16px, 1.45vw, 20px) !important; margin-bottom: 20px !important; }
+  .ornament { width: min(350px, 80%) !important; margin: 24px 0 17px !important; }
+  .primary-button,
+  .outline-button,
+  .amazon-button {
+    min-height: 42px !important;
+    padding: 0 21px !important;
+    font-size: 12px !important;
+  }
+
+  .gallery-preview { padding: 26px clamp(28px, 3.9vw, 60px) 34px !important; }
+  .section-title h2,
+  .featured-panel h2,
+  .session-panel h2,
+  .process-section h2,
+  .book-commission h2 {
+    font-size: clamp(23px, 2.05vw, 30px) !important;
+  }
+  .accent-line { margin-top: 10px !important; margin-bottom: 21px !important; }
+  .gallery-grid {
+    max-width: 1095px !important;
+    gap: clamp(14px, 1.35vw, 21px) !important;
+    margin-top: 16px !important;
+    margin-bottom: 21px !important;
+  }
+  .text-link { font-size: 14px !important; }
+
+  .split-section {
+    padding: 34px clamp(28px, 3.9vw, 60px) 41px !important;
+    gap: clamp(24px, 3.6vw, 52px) !important;
+  }
+  .featured-grid { gap: clamp(16px, 1.55vw, 26px) !important; }
+  .art-card h3 { font-size: 13.5px !important; }
+  .art-card p { font-size: 12.8px !important; }
+  .art-card strong { font-size: 14.5px !important; }
+  .outline-button { margin-top: 20px !important; }
+  .session-icon { font-size: 50px !important; }
+  .session-panel p { font-size: 17px !important; line-height: 1.38 !important; }
+
+  .process-section { padding: 32px clamp(28px, 3.9vw, 60px) 21px !important; }
+  .process-top {
+    grid-template-columns: 235px minmax(0, 1fr) !important;
+    gap: clamp(24px, 3.2vw, 50px) !important;
+  }
+  .process-intro p { font-size: 17px !important; }
+  .process-card { width: 106px !important; }
+  .process-card span { font-size: 13.5px !important; }
+  .process-card p { font-size: 11px !important; }
+  .step-arrow { font-size: 22px !important; }
+  .process-copy { margin-top: 28px !important; padding-top: 34px !important; }
+  .process-copy p { font-size: clamp(14.5px, 1.25vw, 18px) !important; }
+  .process-copy p:nth-child(3) {
+    font-size: clamp(18px, 1.55vw, 23px) !important;
+    margin-top: 19px !important;
+    margin-bottom: 19px !important;
+  }
+
+  .book-panel,
+  .commission-panel {
+    min-height: 172px !important;
+    padding: 21px clamp(24px, 3vw, 52px) !important;
+  }
+  .book-panel > div,
+  .commission-panel > div { padding-top: 30px !important; }
+  .book-panel p,
+  .commission-panel p { font-size: 15.5px !important; }
+  .amazon-image-button img { width: 225px !important; }
+
+  .site-footer {
+    padding: 26px clamp(28px, 3.9vw, 60px) 18px !important;
+    gap: 26px !important;
+  }
+  .footer-brand .logo { width: 165px !important; }
+  .footer-tagline { font-size: 14px !important; }
+  .site-footer h3 { font-size: 12.8px !important; }
+  .site-footer p,
+  .site-footer a,
+  .site-footer small { font-size: 12px !important; }
+
+  .page-hero { padding: 54px clamp(28px, 4.4vw, 70px) !important; }
+  .page-hero.small { padding-top: 70px !important; padding-bottom: 52px !important; }
+  .page-hero h1 { font-size: clamp(34px, 3.55vw, 52px) !important; }
+  .page-hero p { font-size: 11px !important; }
+
+  .gallery-page-section { padding: 34px clamp(28px, 3.9vw, 60px) 56px !important; }
+  .legend-cards { max-width: 920px !important; gap: 16px !important; }
+  .legend-cards article { padding: 18px !important; }
+  .legend-cards h3 { font-size: 19px !important; }
+  .legend-cards p { font-size: 13.5px !important; }
+  .gallery-controls { margin-top: 23px !important; margin-bottom: 29px !important; }
+  .search-input { height: 44px !important; font-size: 16px !important; }
+  .filter-bar button { padding: 8px 15px !important; font-size: 12px !important; }
+  .artwork-grid-page { gap: 24px !important; }
+  .gallery-card h3 { font-size: 14.5px !important; }
+  .gallery-card p { font-size: 12.8px !important; }
+  .gallery-card strong { font-size: 14.5px !important; }
+
+  .artwork-detail {
+    padding: 50px clamp(28px, 4vw, 62px) !important;
+    gap: 34px !important;
+  }
+  .artwork-info h1 { font-size: clamp(32px, 3vw, 48px) !important; }
+  .artwork-info p { font-size: 16px !important; }
+  .artwork-info > strong { font-size: 21px !important; }
+  .artwork-info h2 { font-size: 21px !important; }
+  .print-options-summary h2 { font-size: 18px !important; }
+  .print-options-summary ul { font-size: 15px !important; }
+}
