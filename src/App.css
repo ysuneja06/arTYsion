@@ -2346,3 +2346,84 @@ img {
   .print-options-summary h2 { font-size: 18px !important; }
   .print-options-summary ul { font-size: 15px !important; }
 }
+
+/* ===== artYSion v1.4 final production polish =====
+   1) Desktop book/commission ribbon image edges flush to strip.
+   2) Mobile header logo made more prominent than footer logo. */
+@media (min-width: 1051px) {
+  #books,
+  #commissions {
+    scroll-margin-top: 80px !important;
+  }
+
+  .book-commission {
+    grid-template-columns: 1fr 1fr !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    min-height: 230px !important;
+    overflow: hidden !important;
+  }
+
+  .book-panel,
+  .commission-panel {
+    min-height: 230px !important;
+    padding: 0 !important;
+    align-items: stretch !important;
+    overflow: hidden !important;
+  }
+
+  .book-panel {
+    grid-template-columns: minmax(260px, 31%) 1fr !important;
+    gap: 0 !important;
+  }
+
+  .commission-panel {
+    grid-template-columns: 1fr minmax(260px, 31%) !important;
+    gap: 0 !important;
+  }
+
+  .book-cover,
+  .commission-panel img {
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    min-height: 230px !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    box-shadow: none !important;
+  }
+
+  .book-panel > div,
+  .commission-panel > div {
+    padding: 34px clamp(34px, 4vw, 70px) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+
+  .book-panel .amazon-image-button img {
+    width: 225px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    object-fit: contain !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .site-header .logo {
+    width: clamp(218px, 58vw, 252px) !important;
+    max-height: 66px !important;
+  }
+
+  .site-header .logo img {
+    width: 100% !important;
+    max-height: 66px !important;
+    object-fit: contain !important;
+  }
+
+  .footer-brand .logo {
+    width: 210px !important;
+  }
+}
