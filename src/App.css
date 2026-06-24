@@ -2427,3 +2427,52 @@ img {
     width: 210px !important;
   }
 }
+
+/* ===== artYSion v1.5 final alignment polish =====
+   1) Align book/commission ribbon headings from same top baseline.
+   2) Move mobile header logo slightly left for better balance.
+   3) Keep footer logo smaller than primary mobile header logo. */
+@media (min-width: 1051px) {
+  .book-panel > div,
+  .commission-panel > div {
+    justify-content: flex-start !important;
+    padding-top: 30px !important;
+    padding-bottom: 24px !important;
+  }
+
+  .book-panel h2,
+  .commission-panel h2 {
+    margin-top: 0 !important;
+    margin-bottom: 22px !important;
+  }
+
+  .book-panel p,
+  .commission-panel p {
+    margin-top: 0 !important;
+  }
+
+  .book-panel .amazon-image-button {
+    margin-top: 18px !important;
+  }
+
+  .book-panel .amazon-image-button img {
+    width: 205px !important;
+  }
+}
+
+@media (max-width: 650px) {
+  .site-header {
+    padding-left: 14px !important;
+    padding-right: 28px !important;
+  }
+
+  .site-header .logo {
+    width: clamp(220px, 56vw, 250px) !important;
+    transform: translateX(-8px) !important;
+  }
+
+  .footer-brand .logo {
+    width: 188px !important;
+    transform: none !important;
+  }
+}
