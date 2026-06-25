@@ -1,6 +1,6 @@
 export const siteConfig = {
   brandTagline: "Art that speaks. Inspiration that lasts.",
-  calendlyUrl: "https://calendly.com/YOUR-CALENDLY-LINK/1-1-art-session",
+  calendlyUrl: "https://calendly.com/artysion/30min",
   web3FormsAccessKey: "c0a512f2-b080-4ac1-85da-f1cc7f0d7be2",
   formRecipient: "yaju@artysion.com",
   amazonLinks: {
