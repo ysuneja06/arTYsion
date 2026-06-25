@@ -9,8 +9,8 @@ export const siteConfig = {
   },
   artSession: {
     title: "One-on-One Art Session",
-    duration: "45 Minutes",
-    price: "$149",
+    duration: "30 Minutes",
+    price: "$100",
     mode: "Online (Zoom)"
   },
   printOptions: [
