@@ -2209,14 +2209,14 @@ img {
 
   /* Larger brand mark inside the same compact header */
   .site-header .logo {
-    width: clamp(172px, 14.3vw, 244px) !important;
-    max-height: 62px !important;
+    width: clamp(188px, 15.7vw, 268px) !important;
+    max-height: 66px !important;
     overflow: hidden !important;
   }
   .site-header .logo img {
     width: 100% !important;
     height: auto !important;
-    max-height: 62px !important;
+    max-height: 66px !important;
     object-fit: contain !important;
   }
 
